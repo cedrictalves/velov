@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<head>
+    <title>Velo'v - Acceuil</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="descripition" content="Venez réserver un velo'v sur l'application web Velo'v." />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <!-- HEADER  NAVIGATION MENU -->
+    <div id="header">
+        <header>
+            <div id="topMenu">
+                <img src="img/logo.png" alt="logo" />
+                <a href="#carousel">INSTRUCTIONS</a>
+                <a href="#map">CARTE</a>
+                <img src="img/logo2.png" alt="logo2" />
+            </div>
+        </header>
+    </div>
+
+
+    <!-- CAROUSSEL SLIDER -->
+    <div id="diaporama">
+        <div id="intro">
+            <h1>Profitez de la ville</h1>
+            <h3>Disponible 24h/24 et 7j/7, nous vous accompagnons à chaque instant.</h3>
+        </div>
+        <!-- DIAPORAMA -->
+    </div>
+
+
+    <div id="choisir">
+        <h3>Choisissez une station, entrez vos informations, et récupérez votre velov!</h3>
+    </div>
+
+    <!-- MAP -->
+    <div id="map">
+    </div>
+
+
+
+    <!-- FOOTER -->
+    <div id="footer">
+        <header>
+            <div id="botMenu">
+                <img src="img/logo3.png" alt="logo" />
+                <a href="#">Contact</a>
+                <a href="#">Suivez nous</a>
+                <a href="#">Plus d'informations</a>
+                <a href="#header"><i class="fas fa-arrow-up"></i></a>
+            </div>
+        </header>
+    </div>
+
+    <script src="scripts/carousel.js"></script>
+    <script src="scripts/map.js"></script>
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/timerComp.js"></script>
+    <script src="scripts/mapForm.js"></script>
+    <script src="scripts/canvas.js"></script>
+
+    <script>
+        /*****************
+         *    DIAPORAMA   *
+         *****************/
+        var diaporama = new Carousel(
+            "carousel", // id de la div contenant le diapo
+            document.getElementById("diaporama"), // endroit où va etre créée le diaporama
+            [ // img: nom de l'image.jpg/png, text: texte correspondant
+                {
+                    "img": `slide1.png`,
+                    "text": `<h2>Bienvenue sur l'application <span id="velo">velo'</span><span id="v">v</span>.</h2><p>Suivez les instructions en regardant le diaporama.<p>`
+                }, {
+                    "img": `slide2.png`,
+                    "text": `<h2>Etape 1</h2><p>Sectionnez une station disponible sur la carte en dessous du diaporama.<p>`
+                }, {
+                    "img": `slide3.png`,
+                    "text": `<h2>Etape 2</h2><p>Entrez vos informations, signez et allez récupérer votre <span id="velo">velo'</span><span id="v">v</span>.<p>`
+                }
+            ]
+        );
+
+        /*****************
+         *      CARTE     *
+         *****************/
+
+        var mymap = new Map(
+            "mapid", // id la div contenant la carte
+            document.getElementById('map'), // id de l'élement où va etre créée la carte
+            45.75, // lattitude
+            4.85, // longitude
+            14, // zoom (max 18)
+            // apiKey
+            'pk.eyJ1IjoidHJlaXplN3JlY29yZHMiLCJhIjoiY2p2d2NtMmFvMW5waDQ0cG5uYnp0cW1oOSJ9.3baT8W4YLTG1TT6-8RAFXw'
+        );
+
+        /**************************
+         *        STORAGE          * 
+         **************************/
+        function localStore() {
+            var name = document.getElementById("name").value;
+            var surname = document.getElementById("surname").value;
+            var message = document.getElementById("message");
+            var infoStation = document.getElementById("infoStation");
+
+            if (document.getElementById("stationName") == null) {
+                message.style.border = "1px solid red";
+                message.style.backgroundColor = "#FFEBEB";
+                message.style.textAlign = "center";
+                message.style.borderRadius = "5px";
+                message.style.marginTop = "6px";
+                message.style.fontSize = "12px";
+                message.innerHTML = `<p>Veuillez choisir une station</p>`;
+            } else if (name == "" || surname == "" || window.myCanvas.empty) {
+                message.style.border = "1px solid red";
+                message.style.backgroundColor = "#FFEBEB";
+                message.style.textAlign = "center";
+                message.style.borderRadius = "5px";
+                message.style.marginBottom = "20px";
+                message.style.fontSize = "12px";
+                message.style.marginTop = "6px";
+                message.innerHTML = `<p>Veuillez remplir tous les champs</p>`;
+            } else {
+                message.style.border = "none";
+                message.style.backgroundColor = "none";
+                message.innerHTML = ``;
+                var stationName = document.getElementById("stationName").textContent;
+                var stationAdress = document.getElementById("stationAdress").textContent;
+                window.storage.update({
+                    "name"          : name,
+                    "surname"       : surname,
+                    "stationName"   : stationName,
+                    "stationAdress" : stationAdress,
+                    "dateTime"      : new Date()
+                });
+                window.timer.expire();
+                window.mapForm.updateBtn();
+            }
+        }
+
+        /**************************
+         *       MAP FORM         * 
+         **************************/
+        window.onload = function() {
+
+            window.storage = new Storage();
+
+
+            /**************************
+             *  MAP FORM + CANVAS      *
+             **************************/
+            window.mapForm = new MapForm(
+                document.getElementById('map'),
+                "mapForm"
+            );
+
+            // ce qu'on observe
+            var target = document.getElementById("mapForm");
+            //si changement dans mapForm
+            var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    window.myCanvas = new Canvas(
+                        "signature", //idcanvas
+                        "recommencer", //idearasebutton
+                        "#000000", //color
+                        "round", //lineJoin
+                        "round", //lineCap
+                        3 //lineWidth
+                    );
+                    // timer                   
+                    new TimerComp(document.getElementById("timer"), "timer");
+                });
+
+                //scroll vers le texte du timer
+                var reserver = $('#submit').val();
+                if (reserver == "Réserver") {
+                    $("#submit").click(function() {
+                        $('html,body').animate({
+                                scrollTop: $("#timer").offset().top
+                            },
+                            'slow');
+                    });
+                }
+            });
+            var config = {
+                childList: true
+            };
+            observer.observe(target, config);
+        }
+
+
+        /**************************
+         *   CANCEL RESERVATION    * 
+         **************************/
+        function cancelResa() {
+            window.timer.clearTimer();
+            window.mapForm.updateBtn();
+        }
+    </script>
+
+</body>
+
+</html>

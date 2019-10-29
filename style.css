@@ -1,0 +1,569 @@
+body {
+    background-color: #f4f4f4;
+    font-family: Arial;
+    width: 100%;
+    margin: 0;
+}
+
+
+/****************************/
+
+
+/*  HEADER MENUE NAVIGATION */
+
+
+/****************************/
+
+#topMenu {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-bottom: 1px solid silver;
+    box-shadow: 0 20px 20px -20px #333;
+}
+
+#botMenu {
+    padding-top: 20px;
+    margin-top: 80px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    border-top: 1px solid silver;
+    box-shadow: 0 -20px 20px -20px #333;
+}
+
+#topMenu a {
+    text-decoration: none;
+    font-size: 1.7rem;
+    color: black;
+}
+
+#botMenu a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+}
+
+#botMenu img {
+    padding-bottom: 20px;
+}
+
+#topMenu a:hover,
+#botMenu a:hover {
+    color: #E11F26;
+}
+
+
+/****************************/
+
+
+/*        INTRODUCTION      */
+
+
+/****************************/
+
+#intro {
+    width: 100%;
+    margin: auto;
+    color: white;
+    text-shadow: 5px 0px 13px rgba(0, 0, 0, 0.7), -5px 0px 13px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#intro h1 {
+    font-size: 4rem;
+}
+
+#intro h3 {
+    font-size: 1.5rem;
+}
+
+
+/****************************/
+
+
+/*     SECTION DIAPORAMA    */
+
+
+/****************************/
+
+#diaporama {
+    padding: 30px 0 60px 0;
+    background-image: url("img/lyon1.jpg");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 20px 20px -20px #333;
+}
+
+
+/****************************/
+
+
+/*        DIAPORAMA         */
+
+
+/****************************/
+
+#carousel {
+    width: 80%;
+    max-width: 1200px;
+    height: 600px;
+    margin: auto;
+    border: 5px solid white;
+    overflow: hidden;
+    box-shadow: 0 40px 40px -40px #333;
+}
+
+#carousel-slides {
+    display: flex;
+    height: 600px;
+}
+
+.imgSlide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    max-width: 1200px;
+}
+
+
+/****************************/
+
+
+/*     BOUTONS DIAPORAMA    */
+
+
+/****************************/
+
+#buttons {
+    width: 200px;
+    position: relative;
+    left: 50%;
+    top: -50px;
+    display: flex;
+    justify-content: space-around;
+    transform: translateX(-50%);
+}
+
+#playpause,
+#next,
+#prev {
+    font-size: 20px;
+    z-index: 10;
+    color: white;
+    cursor: pointer;
+    text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+}
+
+#playpause:hover,
+#next:hover,
+#prev:hover {
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -webkit-transition: opacity .5s ease-in-out;
+}
+
+i {
+    padding: 10px 10px 10px 10px;
+    border-radius: 50%;
+}
+
+i:hover {
+    background-color: rgba(255, 255, 255, .5);
+}
+
+
+/****************************/
+
+
+/*      TEXTE  DIAPORAMA    */
+
+
+/****************************/
+
+#imgText {
+    position: relative;
+    top: -645px;
+    color: white;
+    text-shadow: 1px 1px 4px #000000, -1px -1px 4px #000000;
+    text-align: center;
+    padding-top: 1px;
+}
+
+#imgText p {
+    font-size: 1.2rem;
+}
+
+#velo {
+    color: black;
+    text-shadow: 1px 1px 2px white;
+}
+
+#v {
+    background-color: #E11F26;
+    padding: 0 5px 0 5px;
+}
+
+
+/****************************/
+
+
+/*            CARTE         */
+
+
+/****************************/
+
+#map {
+    background-color: #f4f4f4;
+    background-size: cover;
+    background-position: center;
+    padding: 20px 20px 60px 20px;
+    display: flex;
+}
+
+#mapid {
+    margin: auto;
+    width: 70%;
+    height: 530px;
+    border: 5px solid white;
+    padding-right: 40px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 1);
+}
+
+h1 {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#choisir {
+    width: 90%;
+    margin: auto;
+    color: white;
+    text-shadow: 5px 0px 13px rgba(0, 0, 0, 0.7), -5px 0px 13px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 40px 0 20px 0;
+    font-size: 1.4rem;
+}
+
+#choisir h1 {
+    font-size: 3rem;
+}
+
+.leaflet-control-attribution {
+    display: none;
+}
+
+#mapForm {
+    font-size: 0.7rem;
+    width: 250px;
+    margin: auto;
+    height: 530px;
+    padding: 0 10px 0 10px;
+    border: 5px solid white;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 1);
+    background-color: white;
+    display: none;
+}
+
+
+/****************************/
+
+
+/*        FORMULAIRE        */
+
+
+/****************************/
+
+#formulaire {
+    display: flex;
+    flex-direction: column;
+    height: 340px;
+    margin: auto;
+    border: 1px solid black;
+    padding: 0px 10px 0px 10px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+}
+
+#formulaire p {
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#submit {
+    border-radius: 3px;
+    background-color: #E11F26;
+    color: white;
+    border: 1px solid black;
+    height: 20px;
+    font-size: 0.9rem;
+    width: 160px;
+    margin: auto;
+}
+
+#submit:hover {
+    background-color: #f7426c;
+    cursor: pointer;
+}
+
+#signature {
+    background-color: white;
+    margin: 10px auto;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+#recommencer {
+    border-radius: 6px;
+    width: 160px;
+    margin: auto;
+}
+
+#recommencer:hover {
+    background-color: silver;
+    cursor: pointer;
+}
+
+#input:focus {
+    outline: none;
+}
+
+.obligatoire {
+    font-style: italic;
+    color: red;
+}
+
+#error {
+    text-align: center;
+}
+
+#cancel {
+    display: none;
+    border-radius: 3px;
+    background-color: #E11F26;
+    color: white;
+    border: 1px solid black;
+    height: 20px;
+    font-size: 0.9rem;
+    width: 150px;
+    margin: auto;
+    text-align: center;
+}
+
+#cancel:hover {
+    background-color: #f7426c;
+    cursor: pointer;
+}
+
+#timer {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 10px;
+    position: absolute;
+    top: 1740px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%
+}
+
+@media screen and (max-width: 1078px) {
+    #timer {
+        top: 1800px;
+    }
+}
+
+
+/****************************/
+
+
+/*    RESPONSIVE 1024       */
+
+
+/****************************/
+
+@media screen and (max-width: 1024px) {
+    #timer {
+        top: 1800px;
+    }
+}
+
+
+/****************************/
+
+
+/*   RESPONSIVE TABLETTE    */
+
+
+/****************************/
+
+@media screen and (max-width: 768px) {
+    #topMenu a {
+        display: none;
+    }
+    #carousel {
+        height: 308px;
+    }
+    #buttons {
+        top: -350px;
+    }
+    #intro h1 {
+        font-size: 2rem;
+    }
+    #intro h3 {
+        font-size: 1rem;
+    }
+    #choisir h1 {
+        font-size: 2rem;
+    }
+    #map {
+        display: flex;
+        flex-direction: column;
+    }
+    #mapForm {
+        margin-top: 40px;
+    }
+    .imgSlide {
+        background-size: 616px 308px;
+        background-position: top;
+    }
+    i {
+        font-size: 1rem;
+    }
+    #timer {
+        top: 2000px;
+    }
+}
+
+@media screen and (max-width: 812px) {
+    #timer {
+        top: 1850px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #timer {
+        top: 1980px;
+    }
+}
+
+@media screen and (max-width: 558px) {
+    #timer {
+        top: 2010px;
+    }
+}
+
+@media screen and (max-width: 553px) {
+    #timer {
+        top: 2030px;
+    }
+}
+
+@media screen and (max-width: 552px) {
+    #timer {
+        top: 2050px;
+    }
+}
+
+
+/****************************/
+
+
+/*   RESPONSIVE PORTABLE    */
+
+
+/****************************/
+
+@media screen and (max-width: 414px) {
+    #topMenu,
+    #botMenu {
+        flex-direction: column;
+    }
+    #carousel {
+        height: 150px;
+    }
+    #buttons {
+        top: -480px;
+    }
+    #intro h1 {
+        font-size: 1.5rem;
+    }
+    #intro h3 {
+        font-size: 0.8rem;
+    }
+    #imgText h2 {
+        font-size: 1rem;
+    }
+    #imgText p {
+        font-size: 0.8rem;
+    }
+    #choisir h1 {
+        font-size: 1.5rem;
+    }
+    #mapid {
+        height: 350px;
+    }
+    .imgSlide {
+        background-size: 300px 150px;
+        background-position: top;
+    }
+    #playpause,
+    #next,
+    #prev {
+        font-size: 10px;
+        z-index: 10;
+        color: white;
+        cursor: pointer;
+        text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+    }
+    #imgText {
+        top: -635px;
+    }
+    #imgText h2 {
+        font-size: 0.8rem;
+    }
+    #imgText p {
+        font-size: 0.6rem;
+    }
+    #timer {
+        top: 1730px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    #timer {
+        top: 1730px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    #timer {
+        top: 1750px;
+    }
+}
+
+@media screen and (max-width: 328px) {
+    #timer {
+        top: 1780px;
+    }
+}
